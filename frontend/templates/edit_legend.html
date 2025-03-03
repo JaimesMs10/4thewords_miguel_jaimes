@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Leyenda</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <div class="container mx-auto p-6 max-w-4xl bg-white rounded-lg shadow-md">
+        <h1 class="text-4xl font-semibold text-indigo-800 mb-6 text-center">Editar Leyenda</h1>
+
+        <form action="{{ url_for('edit_legend', id=legend.id) }}" method="post" enctype="multipart/form-data" class="space-y-6">
+            <!-- Nombre -->
+            <div>
+                <label for="name" class="block text-lg font-medium text-gray-700">Nombre</label>
+                <input type="text" name="name" id="name" value="{{ legend.name }}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+            </div>
+
+            <!-- Categoría -->
+            <div>
+                <label for="category" class="block text-lg font-medium text-gray-700">Categoría</label>
+                <input type="text" name="category" id="category" value="{{ legend.category }}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+            </div>
+
+            <!-- Descripción -->
+            <div>
+                <label for="description" class="block text-lg font-medium text-gray-700">Descripción</label>
+                <textarea name="description" id="description" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>{{ legend.description }}</textarea>
+            </div>
+
+            <!-- Fecha de creación -->
+            <div>
+                <label for="creation_date" class="block text-lg font-medium text-gray-700">Fecha de creación</label>
+                <input type="date" name="creation_date" id="creation_date" value="{{ legend.creation_date }}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+            </div>
+
+            <!-- Provincia -->
+            <div>
+                <label for="province" class="block text-lg font-medium text-gray-700">Provincia</label>
+                <input type="text" name="province" id="province" value="{{ legend.province }}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <!-- Cantón -->
+            <div>
+                <label for="canton" class="block text-lg font-medium text-gray-700">Cantón</label>
+                <input type="text" name="canton" id="canton" value="{{ legend.canton }}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <!-- Distrito -->
+            <div>
+                <label for="district" class="block text-lg font-medium text-gray-700">Distrito</label>
+                <input type="text" name="district" id="district" value="{{ legend.district }}" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <!-- Imagen -->
+            <div>
+                <label for="image" class="block text-lg font-medium text-gray-700">Imagen</label>
+                <input type="file" name="image" id="image" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <!-- Botones -->
+            <div class="flex justify-between mt-6">
+                <!-- Botón de actualizar leyenda -->
+                <button type="submit" class="bg-indigo-600 text-white py-3 px-8 rounded-lg text-lg hover:bg-indigo-700 transition duration-300">Actualizar Leyenda</button>
+                <!-- Botón de cancelar -->
+                <a href="{{ url_for('index') }}" class="bg-gray-400 text-white py-3 px-8 rounded-lg text-lg hover:bg-gray-500 transition duration-300">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
